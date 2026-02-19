@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Transit Link Restaurant Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet Map Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚇 Sound Transit Link Restaurant Finder</h1>
+            <p>Discover great restaurants near your favorite light rail stations</p>
+        </header>
+
+        <main>
+            <aside class="sidebar">
+                <div class="controls">
+                    <h2>Find Restaurants</h2>
+                    
+                    <div class="control-group">
+                        <label for="station-select">Select a Station:</label>
+                        <select id="station-select">
+                            <option value="">-- Choose a station --</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="distance-slider">Search Radius (miles):</label>
+                        <input type="range" id="distance-slider" min="0.25" max="2" step="0.25" value="0.5">
+                        <span id="distance-display">0.5 mi</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="cuisine-filter">Cuisine Type:</label>
+                        <select id="cuisine-filter">
+                            <option value="">All Cuisines</option>
+                            <option value="american">American</option>
+                            <option value="asian">Asian</option>
+                            <option value="italian">Italian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="vegan">Vegan/Vegetarian</option>
+                            <option value="seafood">Seafood</option>
+                            <option value="coffee">Cafe/Coffee</option>
+                        </select>
+                    </div>
+
+                    <button id="search-btn" class="btn-primary">Search</button>
+                    <button id="reset-btn" class="btn-secondary">Reset</button>
+                </div>
+
+                <div class="results-container">
+                    <h3>Nearby Restaurants</h3>
+                    <div id="results-list" class="results-list">
+                        <p class="placeholder">Select a station and search to see results</p>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="map-container">
+                <div id="map"></div>
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Finding restaurants...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
